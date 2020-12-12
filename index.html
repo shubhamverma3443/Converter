@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        var v2 = '';
+        var result = '';
+        var result2 = '';
+        function calc(v1) {
+            v2 = document.getElementById('inp').value;
+            if (v1 == 'deg') {
+                result = parseFloat(parseFloat(v2) - parseFloat(32));
+                result2 = parseFloat(parseFloat(result) * parseFloat(0.555));
+            }
+            else {
+                result = parseFloat(parseFloat(v2) * parseFloat(1.8));
+                result2 = parseFloat(parseFloat(result) + parseFloat(32));
+            }
+            document.getElementById('dis').value = result2;
+        }
+        function clr() {
+            document.getElementById('inp').value = '';
+            document.getElementById('dis').value = '';
+        }
+
+    </script>
+    <style>
+        * {
+            outline: none;
+        }
+
+        .outer {
+            margin: auto;
+            width: 60%;
+        }
+
+        #inp {
+            width: 99%;
+            height: 10vh;
+            border: 2px solid #7FDBFF;
+            border-radius: 20px;
+            font-size: 40px;
+            text-align: center;
+        }
+
+        #dis {
+            width: 100%;
+            height: 10vh;
+            background-color: white;
+            border: 2px solid #7FDBFF;
+            border-radius: 20px;
+            font-size: 40px;
+        }
+
+        .d1 {
+            height: 10vh;
+            width: 100%;
+        }
+
+        .d2 {
+            height: 10vh;
+            width: 100%;
+            text-align: center;
+            padding-top: 5vh;
+            padding-bottom: 1vh;
+        }
+
+        .d3 {
+            height: 10vh;
+            width: 100%;
+        }
+
+        span {
+            font-size: 2vw;
+        }
+
+        .b1 {
+            margin: 0 10px 0 10px;
+            width: 30%;
+            height: 3vw;
+            background-color: #7FDBFF;
+            border: none;
+            border-radius: 10px;
+            color: white;
+            cursor: pointer;
+        }
+        .b2{
+            height: 3vw;
+            width: 15%;
+            background-color: #7FDBFF;
+            border: none;
+            border-radius: 10px;
+            color: white;
+            cursor: pointer;
+        }
+
+        h1{
+            text-align: center;
+            font-size: 5vw;
+            text-decoration: underline;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="outer">
+        <h1>Temperature Converter</h1>
+        <form onsubmit="event.preventDefault()">
+            <div class="d1">
+                <input type="number" id="inp" step="any" placeholder="Input">
+            </div>
+            <div class="d2">
+                <button value="deg" onclick="calc('deg')" class="b1"><span>Celsius</span></button>
+                <button value="frh" onclick="calc('frh')" class="b1"><span>Fahrenheit</span></button>
+                <button onclick="clr()" class="b2"><span>Clear</span></button>
+            </div>
+            <div class="d3">
+                <input type="button" id="dis">
+            </div>
+        </form>
+    </div>
+</body>
+
+</html>
